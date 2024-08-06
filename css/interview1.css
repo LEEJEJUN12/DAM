@@ -310,8 +310,10 @@ html {
 .speech-bubble-right,
 .speech-bubble-left-continued,
 .speech-bubble-right-continued {
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+  max-width: 80%;
+  padding: 10px;
+  font-size: 0.9rem;
+  font-size: 1.5rem; /* 24px를 rem으로 변환 */
 }
 
 .tt {
@@ -375,49 +377,175 @@ html {
   }
 }
 
+/* 반응형 디자인 - 수정된 미디어 쿼리 */
 @media (max-width: 900px) {
   html {
-    font-size: 14px; /* 900px 이하에서 기본 폰트 크기 줄임 */
+    font-size: 14px;
   }
 
   .profile-pic-left,
   .profile-pic-right {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
   }
 
   .speech-bubble-left,
   .speech-bubble-right,
   .speech-bubble-left-continued,
   .speech-bubble-right-continued {
-    max-width: 70%;
-    width: auto;
-    padding: 15px;
-    font-size: 1.2rem;
+    padding: 12px;
+    font-size: 1.1rem;
   }
 
   .speech-bubble-left-continued {
-    margin-left: 70px;
+    margin-left: 60px;
     left: 0;
   }
 
   .speech-bubble-right-continued {
-    margin-right: 70px;
+    margin-right: 60px;
     right: 0;
   }
 
   .takoyakinyamnyam {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     width: 80%;
     height: auto;
-    padding: 10px;
+    padding: 8px;
+  }
+
+  .category {
+    margin: 15px 0;
   }
 
   .tt {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 }
 
+@media (max-width: 600px) {
+  html {
+    font-size: 12px;
+  }
+
+  .bottom-section {
+    padding: 5px 5px 10px 5px;
+  }
+
+  .profile-pic-left,
+  .profile-pic-right {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+  }
+
+  .speech-bubble-left,
+  .speech-bubble-right,
+  .speech-bubble-left-continued,
+  .speech-bubble-right-continued {
+    padding: 10px;
+    font-size: 0.9rem;
+    max-width: 75%;
+  }
+
+  .speech-bubble-left-continued {
+    margin-left: 50px;
+  }
+
+  .speech-bubble-right-continued {
+    margin-right: 50px;
+  }
+
+  .takoyakinyamnyam {
+    font-size: 1.2rem;
+    width: 85%;
+    padding: 6px;
+  }
+
+  .category {
+    margin: 10px 0;
+    height: auto;
+  }
+
+  .clock {
+    font-size: 1.5rem;
+  }
+
+  .black-bar {
+    width: 100px;
+    height: 40px;
+  }
+
+  .battery img {
+    width: 80px;
+  }
+
+  .tt {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 400px) {
+  html {
+    font-size: 10px;
+  }
+
+  .bottom-section {
+    padding: 3px 3px 5px 3px;
+  }
+
+  .profile-pic-left,
+  .profile-pic-right {
+    width: 35px;
+    height: 35px;
+    min-width: 35px;
+  }
+
+  .speech-bubble-left,
+  .speech-bubble-right,
+  .speech-bubble-left-continued,
+  .speech-bubble-right-continued {
+    padding: 8px;
+    font-size: 0.8rem;
+    max-width: 80%;
+  }
+
+  .speech-bubble-left-continued {
+    margin-left: 45px;
+  }
+
+  .speech-bubble-right-continued {
+    margin-right: 45px;
+  }
+
+  .takoyakinyamnyam {
+    font-size: 1rem;
+    width: 90%;
+    padding: 5px;
+  }
+
+  .category {
+    margin: 8px 0;
+  }
+
+  .clock {
+    font-size: 1.3rem;
+  }
+
+  .black-bar {
+    width: 80px;
+    height: 30px;
+  }
+
+  .battery img {
+    width: 70px;
+  }
+
+  .tt {
+    font-size: 0.7rem;
+  }
+}
 @media (max-width: 600px) {
   .icon-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -467,36 +595,28 @@ html {
     font-size: 2rem;
   }
 
-  .profile-pic-left,
-  .profile-pic-right {
-    width: 50px;
-    height: 50px;
+  .takoyakinyamnyam {
+    font-size: 1.4rem;
+    width: 280px; /* 크기 조정 */
+    height: 45px;
   }
 
   .speech-bubble-left,
   .speech-bubble-right,
   .speech-bubble-left-continued,
   .speech-bubble-right-continued {
-    max-width: 75%;
+    width: 300px; /* 크기 조정 */
     padding: 12px;
-    font-size: 1rem;
   }
 
-  .speech-bubble-left-continued {
-    margin-left: 60px;
-  }
-
-  .speech-bubble-right-continued {
-    margin-right: 60px;
-  }
-
-  .takoyakinyamnyam {
-    font-size: 1.4rem;
-    width: 85%;
+  .profile-pic-left,
+  .profile-pic-right {
+    width: 60px;
+    height: 60px;
   }
 
   .tt {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 
   .category {
@@ -505,36 +625,3 @@ html {
   }
 }
 
-@media (max-width: 400px) {
-  .profile-pic-left,
-  .profile-pic-right {
-    width: 40px;
-    height: 40px;
-  }
-
-  .speech-bubble-left,
-  .speech-bubble-right,
-  .speech-bubble-left-continued,
-  .speech-bubble-right-continued {
-    max-width: 80%;
-    padding: 10px;
-    font-size: 0.9rem;
-  }
-
-  .speech-bubble-left-continued {
-    margin-left: 50px;
-  }
-
-  .speech-bubble-right-continued {
-    margin-right: 50px;
-  }
-
-  .takoyakinyamnyam {
-    font-size: 1.2rem;
-    width: 90%;
-  }
-
-  .tt {
-    font-size: 0.8rem;
-  }
-}
