@@ -9,7 +9,7 @@
 
 @font-face {
 	font-family: 'AppleSDGothicNeoM';
-	src: url('../fonts/AppleSDGothicNeoM.ttf') format('truetype');
+	src: url('../font/AppleSDGothicNeoM.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -81,13 +81,12 @@ body {
 /* 블랙 바 */
 .black-bar {
   grid-column: 2 / 3; /* 가운데 열 */
-  display: flex;
   justify-content: center;
-  align-items: center;
   width: 250px;
   height: 75px;
   background: #000;
   border-radius: 40px;
+  cursor: pointer; /* 클릭 가능한 커서 표시 */
 }
 
 .battery {
@@ -121,6 +120,7 @@ body {
   flex-direction: column;
   gap: 20px; /* 말풍선 사이의 간격 */
   position: relative; /* 자식 요소의 절대 위치 조정을 위해 */
+  padding: 0 10px; /* 좌우 패딩 추가 */
 }
 
 
@@ -143,7 +143,7 @@ body {
   background: #b1c3d5;
   border-radius: 80px;
   text-align: center;
-  font-size: 24px;
+  font-size: 30px;
 }
 
 /* 왼쪽 아이템 설정 */
@@ -204,7 +204,7 @@ body {
   padding: 20px;
   position: relative;
   width: 450px;
-  font-size: 20px;
+  font-size: 24px;
 }
 /* 왼쪽 말풍선의 꼬리 설정 */
 .speech-bubble-left::after {
@@ -228,7 +228,7 @@ body {
   position: relative;
   width: 450px;
   left: 100px;
-  font-size: 20px;
+  font-size: 24px;
   
 }
 
@@ -239,7 +239,7 @@ body {
   padding: 20px;
   position: relative;
   width: 450px;
-  font-size: 20px;
+  font-size: 24px;
 }
 
 
@@ -265,9 +265,10 @@ body {
   position: relative;
   width: 450px;
   right: 100px;
-  font-size: 20px;
+  font-size: 24px;
   
 }
+
 
 .icon-grid {
   display: grid;
@@ -291,3 +292,195 @@ body {
 a {
   text-decoration: none;
 }
+
+/* 반응형 텍스트 크기 조정을 위한 기본 설정 */
+html {
+  font-size: 16px; /* 기본 폰트 크기 */
+}
+
+/* 기존 폰트 크기를 rem 단위로 변경 */
+.clock {
+  font-size: 3rem;
+}
+
+.takoyakinyamnyam {
+  font-size: 1.875rem; /* 30px를 rem으로 변환 */
+}
+
+.speech-bubble-left,
+.speech-bubble-right,
+.speech-bubble-left-continued,
+.speech-bubble-right-continued {
+  font-size: 1.5rem; /* 24px를 rem으로 변환 */
+}
+
+.tt {
+  font-size: 1.3125rem; /* 21px를 rem으로 변환 */
+}
+
+/* 반응형 디자인 */
+
+@media (max-width: 900px) {
+
+  .iphoneframe {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 40px;
+  }
+  .top-section {
+    grid-template-columns: 1fr auto 1fr; /* 변경: 중앙 열의 너비를 내용에 맞게 조정 */
+    padding: 0 10px;
+  }
+
+  .iphoneframe::before {
+    border-radius: 36px;
+  }
+
+  .iphoneinframe {
+    border-radius: 36px;
+    border-width: 10px;
+  }
+
+  .top-section {
+    padding: 0 10px;
+  }
+
+  .clock {
+    font-size: 2rem;
+  }
+
+  .black-bar {
+    width: 150px;
+    height: 50px;
+  }
+
+  .battery img {
+    width: 100px;
+  }
+
+  .bottom-section {
+    padding: 0px 0px 200px 0px;
+  }
+
+  .icon-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    padding: 20px 20px 0px 20px;
+  }
+
+  .tt {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 900px) {
+  html {
+    font-size: 14px; /* 900px 이하에서 기본 폰트 크기 줄임 */
+  }
+
+  .takoyakinyamnyam {
+    font-size: 1.6rem;
+    width: 340px; /* 크기 조정 */
+    height: 55px;
+  }
+
+  .profile-pic-left,
+  .profile-pic-right {
+    width: 70px;
+    height: 70px;
+  }
+
+  .speech-bubble-left,
+  .speech-bubble-right,
+  .speech-bubble-left-continued,
+  .speech-bubble-right-continued {
+    width: 380px; /* 크기 조정 */
+    padding: 15px;
+  }
+
+  .tt {
+    font-size: 1.14rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .icon-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+  }
+
+  .iphoneframe {
+    border-radius: 30px; /* 변경: 더 작은 화면에서 약간 더 작은 둥근 모서리 */
+  }
+
+  .iphoneframe::before {
+    border-radius: 26px; /* 변경: 내부 검은색 테두리의 둥근 모서리 조정 */
+  }
+
+  .iphoneinframe {
+    border-radius: 26px; /* 변경: 내부 흰색 영역의 둥근 모서리 조정 */
+  }
+  .clock {
+    font-size: 1.5rem;
+  }
+
+  .black-bar {
+    width: 100px;
+    height: 40px;
+  }
+
+  .battery img {
+    width: 80px;
+  }
+
+  .tt {
+    font-size: 14px;
+  }
+
+  .battery img{
+    width: 110px;
+    height: auto; 
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 12px; /* 600px 이하에서 기본 폰트 크기 더 줄임 */
+  }
+
+  .clock {
+    font-size: 2rem;
+  }
+
+  .takoyakinyamnyam {
+    font-size: 1.4rem;
+    width: 280px; /* 크기 조정 */
+    height: 45px;
+  }
+
+  .speech-bubble-left,
+  .speech-bubble-right,
+  .speech-bubble-left-continued,
+  .speech-bubble-right-continued {
+    width: 300px; /* 크기 조정 */
+    padding: 12px;
+  }
+
+  .profile-pic-left,
+  .profile-pic-right {
+    width: 60px;
+    height: 60px;
+  }
+
+  .tt {
+    font-size: 1rem;
+  }
+
+  .category {
+    height: 40px;
+    margin: 15px;
+  }
+}
+

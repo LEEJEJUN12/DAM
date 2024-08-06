@@ -18,12 +18,6 @@ function updateClock() {
   clockElement.textContent = timeString;
 }
 
-// 초기 업데이트
-updateClock();
-
-// 시계 업데이트 주기 설정 (1초마다)
-setInterval(updateClock, 1000);
-
 document.addEventListener('DOMContentLoaded', function() {
   const iphoneFrame = document.querySelector('.iphoneframe');
   const iphoneInFrame = document.querySelector('.iphoneinframe');
@@ -41,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
     blackBar.classList.add('transition');
   }, 100); // 페이지 로드 후 약간의 딜레이를 주어 애니메이션 시작
 
-  // 블랙 바 클릭 시 home.html로 이동
+  // 블랙 바 클릭 시 index.html로 이동
   blackBar.addEventListener('click', function() {
     iphoneFrame.classList.add('slide-down');
     setTimeout(() => {
@@ -53,22 +47,25 @@ document.addEventListener('DOMContentLoaded', function() {
   icons.forEach(icon => {
     icon.addEventListener('click', function(event) {
       event.preventDefault();
-      const targetUrl = this.parentElement.getAttribute('data-target');
+      const targetUrl = this.closest('a').getAttribute('data-target');
       
-      // 디버깅 로그 추가
       console.log('Icon clicked:', this);
       console.log('Applying fade-out effect to iconGrid');
 
-      // 페이드 아웃 효과 추가
       iconGrid.classList.add('fade-out');
 
-      // 페이드 아웃 효과가 완료된 후 페이지 전환
       setTimeout(() => {
         console.log('Redirecting to target URL:', targetUrl);
         window.location.href = targetUrl;
       }, 500); // 500ms 동안 페이드 아웃
     });
   });
+
+  // 초기 시계 업데이트
+  updateClock();
+
+  // 시계 업데이트 주기 설정 (1초마다)
+  setInterval(updateClock, 1000);
 });
 
 function showThumbsUp(button) {

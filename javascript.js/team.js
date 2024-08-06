@@ -85,3 +85,76 @@ function showHeart(button) {
     heart.remove();
   }, 1000);
 }
+document.addEventListener('DOMContentLoaded', function() {
+  const iphoneFrame = document.querySelector('.iphoneframe');
+  const iphoneInFrame = document.querySelector('.iphoneinframe');
+  const clock = document.querySelector('.clock');
+  const blackBar = document.querySelector('.black-bar');
+  const icons = document.querySelectorAll('.icon');
+  const iconGrid = document.getElementById('iconGrid');
+
+  // 페이지 로드 시 애니메이션 효과를 주기 위해 클래스 추가
+  setTimeout(() => {
+    iphoneFrame.classList.add('animate');
+    iphoneFrame.classList.add('transition');
+    iphoneInFrame.classList.add('transition');
+    clock.classList.add('transition');
+    blackBar.classList.add('transition');
+  }, 100); // 페이지 로드 후 약간의 딜레이를 주어 애니메이션 시작
+
+  // 블랙 바 클릭 시 index.html로 이동
+  blackBar.addEventListener('click', function() {
+    iphoneFrame.classList.add('slide-down');
+    setTimeout(() => {
+      window.location.href = 'index.html';
+    }, 1000); // 애니메이션 시간과 맞춤
+  });
+
+  // 아이콘 클릭 시 페이드 아웃 효과 적용 및 페이지 전환
+  icons.forEach(icon => {
+    icon.addEventListener('click', function(event) {
+      event.preventDefault();
+      const targetUrl = this.closest('a').getAttribute('data-target');
+      
+      console.log('Icon clicked:', this);
+      console.log('Applying fade-out effect to iconGrid');
+
+      iconGrid.classList.add('fade-out');
+
+      setTimeout(() => {
+        console.log('Redirecting to target URL:', targetUrl);
+        window.location.href = targetUrl;
+      }, 500); // 500ms 동안 페이드 아웃
+    });
+  });
+
+  // 초기 시계 업데이트
+  updateClock();
+
+  // 시계 업데이트 주기 설정 (1초마다)
+  setInterval(updateClock, 1000);
+});
+
+function showThumbsUp(button) {
+  const thumbsUp = document.createElement('span');
+  thumbsUp.classList.add('thumbs-up');
+  thumbsUp.innerHTML = '👍';
+
+  const rect = button.getBoundingClientRect();
+  thumbsUp.style.left = `${rect.left + rect.width / 2}px`;
+  thumbsUp.style.top = `${rect.top}px`;
+
+  document.body.appendChild(thumbsUp);
+
+  // 버튼 상태 변경
+  button.classList.toggle('liked');
+  if (button.classList.contains('liked')) {
+    button.style.color = '#1877f2';
+  } else {
+    button.style.color = '';
+  }
+
+  setTimeout(() => {
+    thumbsUp.remove();
+  }, 1000);
+}
