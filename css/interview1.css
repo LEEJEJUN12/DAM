@@ -447,6 +447,14 @@ html {
     font-size: 1.5rem;
   }
 
+  .top-section {
+    grid-template-columns: 1fr auto 1fr; /* 변경: 중앙 열의 너비를 내용에 맞게 조정 */
+    padding: 0 10px;
+  }
+   .bottom-section {
+    padding: 10px 10px 100px 10px;
+  }
+
   .black-bar {
     width: 100px;
     height: 40px;
@@ -467,10 +475,18 @@ html {
   .speech-bubble-right,
   .speech-bubble-left-continued,
   .speech-bubble-right-continued {
+    width: auto;
     max-width: calc(100% - 50px);
     padding: 10px;
     font-size: 1rem;
   }
+
+  .speech-bubble-left-continued,
+  .speech-bubble-right-continued {
+    left: 0;
+    right: 0;
+  }
+
 
   .takoyakinyamnyam {
     font-size: 1.2rem;
