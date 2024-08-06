@@ -310,7 +310,8 @@ html {
 .speech-bubble-right,
 .speech-bubble-left-continued,
 .speech-bubble-right-continued {
-  font-size: 1.5rem; /* 24px를 rem으로 변환 */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .tt {
@@ -379,28 +380,41 @@ html {
     font-size: 14px; /* 900px 이하에서 기본 폰트 크기 줄임 */
   }
 
-  .takoyakinyamnyam {
-    font-size: 1.6rem;
-    width: 340px; /* 크기 조정 */
-    height: 55px;
-  }
-
   .profile-pic-left,
   .profile-pic-right {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
   }
 
   .speech-bubble-left,
   .speech-bubble-right,
   .speech-bubble-left-continued,
   .speech-bubble-right-continued {
-    width: 380px; /* 크기 조정 */
+    max-width: 70%;
+    width: auto;
     padding: 15px;
+    font-size: 1.2rem;
+  }
+
+  .speech-bubble-left-continued {
+    margin-left: 70px;
+    left: 0;
+  }
+
+  .speech-bubble-right-continued {
+    margin-right: 70px;
+    right: 0;
+  }
+
+  .takoyakinyamnyam {
+    font-size: 1.6rem;
+    width: 80%;
+    height: auto;
+    padding: 10px;
   }
 
   .tt {
-    font-size: 1.14rem;
+    font-size: 1rem;
   }
 }
 
@@ -453,28 +467,36 @@ html {
     font-size: 2rem;
   }
 
-  .takoyakinyamnyam {
-    font-size: 1.4rem;
-    width: 280px; /* 크기 조정 */
-    height: 45px;
+  .profile-pic-left,
+  .profile-pic-right {
+    width: 50px;
+    height: 50px;
   }
 
   .speech-bubble-left,
   .speech-bubble-right,
   .speech-bubble-left-continued,
   .speech-bubble-right-continued {
-    width: 300px; /* 크기 조정 */
+    max-width: 75%;
     padding: 12px;
+    font-size: 1rem;
   }
 
-  .profile-pic-left,
-  .profile-pic-right {
-    width: 60px;
-    height: 60px;
+  .speech-bubble-left-continued {
+    margin-left: 60px;
+  }
+
+  .speech-bubble-right-continued {
+    margin-right: 60px;
+  }
+
+  .takoyakinyamnyam {
+    font-size: 1.4rem;
+    width: 85%;
   }
 
   .tt {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .category {
@@ -483,3 +505,36 @@ html {
   }
 }
 
+@media (max-width: 400px) {
+  .profile-pic-left,
+  .profile-pic-right {
+    width: 40px;
+    height: 40px;
+  }
+
+  .speech-bubble-left,
+  .speech-bubble-right,
+  .speech-bubble-left-continued,
+  .speech-bubble-right-continued {
+    max-width: 80%;
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .speech-bubble-left-continued {
+    margin-left: 50px;
+  }
+
+  .speech-bubble-right-continued {
+    margin-right: 50px;
+  }
+
+  .takoyakinyamnyam {
+    font-size: 1.2rem;
+    width: 90%;
+  }
+
+  .tt {
+    font-size: 0.8rem;
+  }
+}
