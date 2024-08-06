@@ -312,7 +312,6 @@ html {
 .speech-bubble-right-continued {
   max-width: 80%;
   padding: 10px;
-  font-size: 0.9rem;
   font-size: 1.5rem; /* 24px를 rem으로 변환 */
 }
 
@@ -323,6 +322,9 @@ html {
 /* 반응형 디자인 */
 
 @media (max-width: 900px) {
+  html {
+    font-size: 14px;
+  }
 
   .iphoneframe {
     width: 100vw;
@@ -367,11 +369,6 @@ html {
     padding: 10px 10px 100px 10px;
   }
 
-  .left-item,
-  .right-item {
-    width: 100%;
-    gap: 10px;
-  }
 
   .chat-container {
     width: 100%;
@@ -385,16 +382,6 @@ html {
     grid-column-gap: 20px;
     grid-row-gap: 20px;
     padding: 20px 20px 0px 20px;
-  }
-
-  .tt {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 900px) {
-  html {
-    font-size: 14px; /* 900px 이하에서 기본 폰트 크기 줄임 */
   }
 
   .takoyakinyamnyam {
@@ -465,21 +452,10 @@ html {
     height: 40px;
   }
 
-  .battery img {
-    width: 80px;
-  }
-
-  .tt {
-    font-size: 14px;
-  }
-
   .battery img{
     width: 110px;
-    height: auto; 
   }
-}
 
-@media (max-width: 600px) {
   .profile-pic-left,
   .profile-pic-right {
     width: 40px;
@@ -500,6 +476,9 @@ html {
     font-size: 1.2rem;
     padding: 8px;
   }
+  .tt{
+    font-size:  14px;
+  }
 }
 
 /* iPhone 12 Pro 및 유사한 크기의 모바일 기기를 위한 최적화 */
@@ -509,35 +488,16 @@ html {
   }
 
   .iphoneframe {
-    width: 100%;
     height: 100vh;
-    border-radius: 40px;
-    overflow: hidden;
   }
 
   .iphoneinframe {
-    width: 100%;
     height: 100%;
-    border-width: 10px;
-    border-radius: 30px;
   }
 
   .top-section {
     height: 10%;
     padding: 5px;
-  }
-
-  .clock {
-    font-size: 1.5rem;
-  }
-
-  .black-bar {
-    width: 100px;
-    height: 30px;
-  }
-
-  .battery img {
-    width: 60px;
   }
 
   .bottom-section {
@@ -546,48 +506,18 @@ html {
     overflow-y: auto;
   }
 
-  .chat-container {
-    width: 100%;
-    padding: 0 5px;
-  }
-
   .category {
     margin: 10px 0;
   }
 
   .takoyakinyamnyam {
     width: 80%;
-    height: auto;
-    padding: 10px;
     font-size: 1.2rem;
   }
 
   .left-item,
   .right-item {
     gap: 8px;
-  }
-
-  .profile-pic-left,
-  .profile-pic-right {
-    width: 40px;
-    height: 40px;
-    min-width: 40px;
-  }
-
-  .speech-bubble-left,
-  .speech-bubble-right,
-  .speech-bubble-left-continued,
-  .speech-bubble-right-continued {
-    width: auto;
-    max-width: calc(100% - 50px);
-    padding: 10px;
-    font-size: 0.9rem;
-  }
-
-  .speech-bubble-left-continued,
-  .speech-bubble-right-continued {
-    left: 0;
-    right: 0;
   }
 
   .back-button {
@@ -633,4 +563,3 @@ html {
     min-width: 35px;
   }
 }
-
