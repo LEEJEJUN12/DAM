@@ -1,0 +1,214 @@
+/* 초기화 */
+* {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+@font-face {
+	font-family: 'AppleSDGothicNeoM';
+	src: url('../fonts/AppleSDGothicNeoM.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* 바디 설정 */
+body {
+  font-family: 'AppleSDGothicNeoM', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-image: url(../image/bg.jpg);
+}
+
+
+/* 아이폰 제일 바깥 */
+.iphoneframe {
+  position: relative;
+  width: 900px;
+  height: 1200px;
+  background: rgb(52, 50, 50);
+  border-radius: 100px;
+  overflow: hidden; /* 아이폰 프레임의 바깥으로 나가는 것을 방지 */
+  transition: transform 1s ease-in-out;
+  cursor: url('image/cursor.png'), auto;
+}
+
+
+/* 아이폰 중간 */
+.iphoneframe::before {
+  content: '';
+  position: absolute;
+  inset: 9px;
+  background: #000;
+  border-radius: 96px;
+}
+
+/* 아이폰 흰색 바탕 */
+.iphoneinframe {
+  position: absolute;
+  inset: 9px;
+  background: white;
+  border-radius: 96px;
+  border: 20px solid #000;
+  display: grid;
+  grid-template-rows: 13% 87%;
+  overflow: hidden; /* 내용이 경계 바깥으로 넘지 않도록 */
+}
+
+/* 상단 15% 영역 */
+.top-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* 세 개의 열로 나누기 */
+  align-items: center;
+  padding: 0 20px;
+}
+
+/* 시계 */
+.clock {
+  grid-column: 1 / 2; /* 왼쪽 열 */
+  text-align: center;
+  font-family: 'AppleSDGothicNeoM', sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  color: black;
+}
+
+/* 블랙 바 */
+.black-bar {
+  grid-column: 2 / 3; /* 가운데 열 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 75px;
+  background: #000;
+  border-radius: 40px;
+  cursor: pointer; /* 클릭 가능한 커서 표시 */
+}
+.battery {
+  grid-column: 3/3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.battery img{
+  width: 200px;
+  height: auto; 
+}
+
+/* 하단 90% 영역 */
+.bottom-section {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 0px 0px 500px 0px;
+  box-sizing: border-box;
+  overflow-y: auto; /* 내용이 경계 바깥으로 넘지 않도록 */
+  text-align: left;
+}
+.bottom-section::-webkit-scrollbar{
+  display:none;
+}
+a {
+  text-decoration: none;
+}
+
+
+.tt {
+  text-align: center;
+  text-decoration: none;
+  color: #000;
+  font-size: 21px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+.tt:hover {
+  text-decoration: none; /* 호버 시에도 밑줄 제거 */
+  color: inherit;        /* 호버 시에도 기본 글자 색상으로 설정 */
+}
+
+
+
+/* 아이콘 그리드 */
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4개의 열 */
+  grid-template-rows: repeat(6, 1fr); /* 6개의 행 */
+  grid-column-gap: 50px; /* 아이콘 간의 간격 */
+  grid-row-gap: 50px; /*아이콘 새로 간격 */
+  padding: 30px 40px 0px 40px;
+  box-sizing: border-box;
+  width: 100%; /* 그리드 전체 너비 */
+  height: calc(85% - 40px); /* 그리드 높이 (하단 영역에서 패딩을 뺀 값) */
+}
+
+.icon-grid .icon {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px; /* 이미지에 약간의 둥근 모서리 추가 */
+}
+
+/* 슬라이딩 전환 애니메이션 */
+.slide-up {
+  transform: translateY(100%);
+}
+
+.slide-up.animate {
+  transform: translateY(0);
+}
+
+/* 하강 전환 애니메이션 */
+.slide-down {
+  transform: translateY(100%);
+  transition: transform 1s ease-in-out;
+}
+
+/* 페이드 아웃 애니메이션 */
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+/* 기존 스타일 유지 */
+
+/* 반응형 스타일 추가 */
+@media (max-width: 480px) {
+  .main-container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .app-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .app-name {
+    font-size: 14px;
+  }
+
+  .app-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+
+  /* 필요에 따라 다른 요소들의 스타일 조정 */
+}
+
+/* 태블릿 크기를 위한 중간 크기 스타일 */
+@media (min-width: 481px) and (max-width: 768px) {
+  .main-container {
+    width: 90%;
+  }
+
+  .app-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* 필요에 따라 다른 요소들의 스타일 조정 */
+}
