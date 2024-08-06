@@ -1,0 +1,197 @@
+/* 초기화 */
+* {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  box-sizing: border-box;
+}
+@font-face {
+	font-family: 'AppleSDGothicNeoM';
+	src: url('../fonts/AppleSDGothicNeoM.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* 전체 페이지 스타일 */
+body {
+  font-family: 'AppleSDGothicNeoM', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url('../image/bg.jpg') no-repeat center center fixed; /* 배경 이미지 설정 */
+  background-size: cover; /* 이미지 크기를 맞춤 */
+  color: #fff;
+  text-align: center;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 1s ease-in-out; /* 슬라이딩 전환 애니메이션 */
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  color: #000;
+}
+
+/* 아이폰 제일 바깥 */
+.iphoneframe {
+  position: relative;
+  width: 450px;
+  height: 862.5px;
+  background: rgb(52, 50, 50);
+  border-radius: 50px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: transform 1s ease-in-out;
+}
+
+.iphoneframe.transition {
+  /* 전환 동안 사용할 스타일 */
+  transform: translateY(100%);
+}
+
+/* 아이폰 중간 */
+.iphoneframe::before {
+  content: '';
+  position: absolute;
+  inset: 4.5px;
+  background: #000;
+  border-radius: 48px;
+}
+
+/* 아이폰 흰색 바탕 */
+.iphoneinframe {
+  position: absolute;
+  inset: 4.5px;
+  background: white;
+  border-radius: 48px;
+  border: 10px solid #000;
+  display: grid;
+  grid-template-rows: 10% 90%;
+  overflow: hidden; /* 내용이 경계 바깥으로 넘지 않도록 */
+}
+
+/* 아이폰 상단 10% 영역 */
+.top-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* 세 개의 열로 나누기 */
+  align-items: center;
+  padding: 0 10px;
+  z-index: 2; /* 화면의 다른 요소들보다 앞에 있도록 */
+}
+
+/* 블랙 바 */
+.black-bar {
+  grid-column: 2 / 3; /* 가운데 열 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 37.5px;
+  background: #000;
+  border-radius: 20px;
+  z-index: 3; /* 배경 이미지보다 앞에 있도록 */
+}
+
+.battery {
+  grid-column: 3/3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.battery img{
+  width: 100px;
+  height: auto; 
+}
+
+/* 시계 */
+.clock {
+  text-align: center;
+  font-family: 'AppleSDGothicNeoM', sans-serif;
+  font-size: 5rem;
+  font-weight: bold;
+  color: #979797;
+  z-index: 3; /* 배경 이미지보다 앞에 있도록 */
+}
+
+/* 슬라이더 컨테이너 */
+.slider-container {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 50px;
+  background-color: rgba(204, 204, 204, 0.8); /* 반투명 배경색 */
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 3; /* 배경 이미지보다 앞에 있도록 */
+}
+
+/* 슬라이더 */
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  background-color: #4caf50;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: left 0.3s;
+  z-index: 4; /* 슬라이더 텍스트보다 뒤에 있도록 */
+}
+
+/* 슬라이더 텍스트 */
+.slider-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: #000000;
+  pointer-events: none;
+  z-index: 4; /* 슬라이더와 동일한 z-index */
+}
+
+
+/* 배경 이미지 */
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1; /* 모든 요소들 뒤에 있도록 */
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* 슬라이딩 전환 애니메이션 고장나면 지우기 */
+.slide-up {
+  transform: translateY(100%);
+  transition: transform 1s ease-in-out;
+}
+
+.slide-up.animate {
+  transform: translateY(0);
+}

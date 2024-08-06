@@ -1,0 +1,227 @@
+/* 초기화 */
+* {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+@font-face {
+	font-family: 'AppleSDGothicNeoM';
+	src: url('../fonts/AppleSDGothicNeoM.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* 바디 설정 */
+body {
+  font-family: 'AppleSDGothicNeoM', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: gray;
+  overflow: hidden;
+  padding-top: 20px;
+  background-image: url(../image/bg.jpg);
+}
+
+/* 아이폰 제일 바깥 */
+.iphoneframe {
+  position: relative;
+  width: 900px;
+  height: 1200px;
+  background: rgb(52, 50, 50);
+  border-radius: 100px;
+  overflow: hidden; /* 아이폰 프레임의 바깥으로 나가는 것을 방지 */
+}
+
+/* 아이폰 중간 */
+.iphoneframe::before {
+  content: '';
+  position: absolute;
+  inset: 9px;
+  background: #000;
+  border-radius: 96px;
+}
+
+/* 아이폰 흰색 바탕 */
+.iphoneinframe {
+  position: absolute;
+  inset: 9px;
+  background: white;
+  border-radius: 96px;
+  border: 20px solid #000;
+  display: grid;
+  grid-template-rows: 13% 87%;
+  overflow: hidden; /* 내용이 경계 바깥으로 넘지 않도록 */
+}
+
+
+
+/* 상단 10% 영역 */
+.top-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* 세 개의 열로 나누기 */
+  align-items: center;
+  padding: 0 20px;
+  background: #385692;
+}
+
+/* 시계 */
+.clock {
+  grid-column: 1 / 2; /* 왼쪽 열 */
+  text-align: center;
+  font-family: 'AppleSDGothicNeoM', sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* 블랙 바 */
+.black-bar {
+  grid-column: 2 / 3; /* 가운데 열 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 75px;
+  background: #000;
+  border-radius: 40px;
+}
+
+.battery {
+  grid-column: 3/3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.battery img{
+  width: 200px;
+  height: auto; 
+}
+
+/* 하단 90% 영역 */
+.bottom-section {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow-y: auto; /* 내용이 경계 바깥으로 넘지 않도록 */
+  text-align: right;
+  padding: 0px 0px 300px 0px;
+}
+.bottom-section::-webkit-scrollbar{
+  display:none;
+}
+
+.post-container {
+	background-color: #ffffff;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	padding: 15px;
+}
+
+.user-info {
+	display: flex;
+	align-items: center;
+	margin-bottom: 15px;
+}
+
+.profile-pic {
+	width: 91px;
+	height: 91px;
+	border-radius: 50%;
+	object-fit: cover;
+	margin-right: 19.5px;
+}
+
+.user-details {
+	display: flex;
+	flex-direction: column;
+}
+
+.user-name {
+	font-weight: bold;
+  font-size: 20.8px;
+}
+
+.post-time {
+	color: #606770;
+	font-size: 18.2px;
+  text-align: left;
+}
+
+.post-content {
+  font-family: 'AppleSDGothicNeoM', sans-serif;
+	margin-bottom: 15px;
+  font-size: 26px;
+  text-align: left;
+}
+
+.post-content p {
+	margin: 0;
+}
+
+.post-image {
+	width: 100%;
+	height: auto;
+	border-radius: 8px;
+	margin-top: 10px;
+}
+
+.post-actions {
+	display: flex;
+	justify-content: space-between;
+}
+
+button {
+	background: none;
+	border: none;
+	color: #1a74e7;
+	cursor: pointer;
+	font-size: 18.2px;
+	padding: 5px;
+	transition: color 0.3s;
+}
+
+button:hover {
+	color: #0056b3;
+}
+
+@keyframes thumbs-up-float {
+  0% {
+    transform: translateY(0) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-50px) scale(1.5) rotate(20deg);
+    opacity: 0;
+  }
+}
+
+.thumbs-up {
+  position: fixed;
+  font-size: 24px;
+  animation: thumbs-up-float 1s ease-out forwards;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.like-btn {
+  background: none;
+  border: none;
+  color: #1877f2;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 5px;
+  transition: transform 0.1s, color 0.3s;
+}
+
+.like-btn:active {
+  transform: scale(1.2);
+}
+
+.like-btn.liked {
+  color: #1877f2;
+}
