@@ -41,11 +41,11 @@ document.addEventListener('DOMContentLoaded', function() {
     blackBar.classList.add('transition');
   }, 100); // 페이지 로드 후 약간의 딜레이를 주어 애니메이션 시작
 
-  // 블랙 바 클릭 시 home.html로 이동
+  // 블랙 바 클릭 시 index.html로 이동
   blackBar.addEventListener('click', function() {
     iphoneFrame.classList.add('slide-down');
     setTimeout(() => {
-      window.location.href = 'home.html';
+      window.location.href = 'index.html';
     }, 1000); // 애니메이션 시간과 맞춤
   });
 
@@ -93,4 +93,43 @@ function showThumbsUp(button) {
   setTimeout(() => {
     thumbsUp.remove();
   }, 1000);
+}
+// 기존 코드 아래에 추가
+slider.addEventListener('touchstart', function(event) {
+  isDragging = true;
+  startX = event.touches[0].clientX - slider.offsetLeft;
+  slider.style.transition = 'none';
+});
+
+document.addEventListener('touchmove', function(event) {
+  if (isDragging) {
+    event.preventDefault(); // 스크롤 방지
+    let offsetX = event.touches[0].clientX - startX;
+    if (offsetX < 0) {
+      offsetX = 0;
+    } else if (offsetX > maxOffset) {
+      offsetX = maxOffset;
+      unlock();
+    }
+    slider.style.left = offsetX + 'px';
+  }
+}, { passive: false });
+
+document.addEventListener('touchend', function() {
+  if (isDragging) {
+    isDragging = false;
+    if (parseInt(slider.style.left) < maxOffset) {
+      slider.style.transition = 'left 0.3s';
+      slider.style.left = '0';
+    }
+  }
+});
+window.addEventListener('resize', function() {
+  // 필요한 경우 요소들의 크기나 위치를 조정
+  updateLayout();
+});
+
+function updateLayout() {
+  // 화면 크기에 따라 레이아웃 조정
+  // 예: 아이콘 크기 조정, 글꼴 크기 변경 등
 }

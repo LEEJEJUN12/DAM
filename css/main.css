@@ -174,3 +174,41 @@ a {
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
 }
+/* 기존 스타일 유지 */
+
+/* 반응형 스타일 추가 */
+@media (max-width: 480px) {
+  .main-container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .app-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .app-name {
+    font-size: 14px;
+  }
+
+  .app-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+
+  /* 필요에 따라 다른 요소들의 스타일 조정 */
+}
+
+/* 태블릿 크기를 위한 중간 크기 스타일 */
+@media (min-width: 481px) and (max-width: 768px) {
+  .main-container {
+    width: 90%;
+  }
+
+  .app-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* 필요에 따라 다른 요소들의 스타일 조정 */
+}
