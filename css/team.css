@@ -24,6 +24,7 @@ body {
   overflow: hidden;
 
   background-image: url(../image/bg.jpg);
+  cursor: url('../image/cursor.png'), auto;
 }
 
 /* 아이폰 제일 바깥 */

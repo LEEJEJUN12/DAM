@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
   blackBar.addEventListener('click', function() {
     iphoneFrame.classList.add('slide-down');
     setTimeout(() => {
-      window.location.href = 'index.html';
+      window.location.href = 'home.html';
     }, 1000); // 애니메이션 시간과 맞춤
   });
 

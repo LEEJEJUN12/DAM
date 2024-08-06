@@ -118,7 +118,7 @@ h1 {
   font-family: 'AppleSDGothicNeoM', sans-serif;
   font-size: 5rem;
   font-weight: bold;
-  color: #979797;
+  color: #ffffff;
   z-index: 3;
 }
 
@@ -135,6 +135,7 @@ h1 {
   overflow: hidden;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   z-index: 3;
+  touch-action: none;
 }
 
 /* 슬라이더 */
@@ -149,6 +150,7 @@ h1 {
   cursor: pointer;
   transition: left 0.3s;
   z-index: 4;
+  touch-action: none;
 }
 
 /* 슬라이더 텍스트 */
@@ -188,7 +190,7 @@ h1 {
 /* 반응형 스타일 */
 @media (max-width: 480px) {
   .iphoneframe {
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     border-radius: 0;
   }
@@ -196,29 +198,41 @@ h1 {
   .iphoneframe::before,
   .iphoneinframe {
     border-radius: 0;
+    inset: 0;
+    border: none;
   }
 
   .top-section {
-    padding: 0 5px;
+    padding: 10px 5px;
   }
 
   .black-bar {
-    width: 100px;
-    height: 25px;
+    width: 30%;
+    height: 20px;
   }
 
   .battery img {
-    width: 60px;
+    width: 40px;
   }
 
   .clock {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   .slider-container {
-    bottom: 50px;
+    bottom: 10vh;
     width: 80%;
     max-width: 300px;
+    height: 40px;
+  }
+
+  .slider {
+    width: 40px;
+    height: 40px;
+  }
+
+  .slider-text {
+    font-size: 14px;
   }
 }
 

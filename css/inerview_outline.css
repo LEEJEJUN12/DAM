@@ -4,6 +4,7 @@
   padding: 0;
   user-select: none;
   box-sizing: border-box;
+  cursor: url('../image/cursor.png'), auto;
 }
 
 @font-face {
@@ -22,7 +23,6 @@ body {
   align-items: center;
   background: gray;
   overflow: hidden;
-  padding-top: 20px;
   background-image: url(../image/bg.jpg);
 }
 
@@ -101,6 +101,11 @@ body {
   width: 200px;
   height: auto; 
 }
+
+a {
+  text-decoration: none;
+}
+
 
 /* 하단 90% 영역 */
 .bottom-section {
